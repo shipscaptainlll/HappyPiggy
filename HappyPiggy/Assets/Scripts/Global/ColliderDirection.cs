@@ -5,10 +5,6 @@ using UnityEngine;
 public class ColliderDirection : MonoBehaviour
 {
     [SerializeField] PlayerMovement piggyMovementController;
-    [SerializeField] Sprite verticalUpMovement;
-    [SerializeField] Sprite verticalDownMovement;
-    [SerializeField] Sprite horizontalLeftMovement;
-    [SerializeField] Sprite horizontalRigthMovement;
     CapsuleCollider2D localCollider;
 
     void Start()

@@ -20,11 +20,20 @@ public class LayersSwitcher : MonoBehaviour
     {
         if (transform.parent.position.y > collision.transform.position.y)
         {
+            collision.GetComponent<SpriteRenderer>().sortingOrder = transform.parent.GetComponent<SpriteRenderer>().sortingOrder + 1;
+        }
+        else
+        {
+            collision.GetComponent<SpriteRenderer>().sortingOrder = transform.parent.GetComponent<SpriteRenderer>().sortingOrder - 1;
+        }
+        /*
+        if (transform.parent.position.y > collision.transform.position.y)
+        {
             collision.GetComponent<SpriteRenderer>().sortingOrder = 2;
         } else
         {
             collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
-        }
+        }*/
         
     }
 }

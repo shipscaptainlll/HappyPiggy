@@ -9,15 +9,18 @@ public class PlayerMovement : MonoBehaviour
     PlayerInput playerInput;
     Rigidbody2D playerRigidBody;
     string currentOrientation;
+    [SerializeField] Transform spawnPoint;
     [SerializeField] float playerSpeed;
 
     public event Action<string> OrientationChanged = delegate { };
+    public event Action PiggyRespawned = delegate { };
     // Start is called before the first frame update
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
         playerRigidBody = GetComponent<Rigidbody2D>();
         currentOrientation = "horizontal_left";
+        transform.Find("HealthBar").GetComponent<PiggyHealthBar>().LostAllHealth += respawnPiggy;
     }
 
     // Update is called once per frame
@@ -26,10 +29,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 inputFromStick = playerInput.actions["Move"].ReadValue<Vector2>();
         calculateOrientation(inputFromStick);
         movePlayer(inputFromStick);
-        
-
-
-        
     }
 
     void movePlayer(Vector2 inputFromStick)
@@ -84,6 +83,15 @@ public class PlayerMovement : MonoBehaviour
         {
             OrientationChanged(newOrientation);
             currentOrientation = newOrientation;
+        }
+    }
+
+    void respawnPiggy()
+    {
+        transform.position = spawnPoint.position;
+        if (PiggyRespawned != null)
+        {
+            PiggyRespawned();
         }
     }
 }
