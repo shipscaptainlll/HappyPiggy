@@ -178,7 +178,7 @@ public class DogMovement : MonoBehaviour
     bool detectBottomWall()
     {
         
-        RaycastHit2D[] verticalDownHit = Physics2D.RaycastAll(transform.position, new Vector2(0, -1), 1.6f);
+        RaycastHit2D[] verticalDownHit = Physics2D.RaycastAll(transform.position, new Vector2(0, -1), 2f);
         if (verticalDownHit != null)
         {
             foreach (RaycastHit2D Object in verticalDownHit)

@@ -28,6 +28,7 @@ public class BombBehavior : MonoBehaviour
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 2.3f);
         foreach (Collider2D damagedObject in hitColliders)
         {
+            Debug.Log(damagedObject + " " + damagedObject.transform.gameObject.layer);
             if (damagedObject.gameObject.layer == 6)
             {
                 if (damagedObject.transform.Find("HealthBar") != null && damagedObject.transform.Find("HealthBar").GetComponent<PiggyHealthBar>() != null)
@@ -36,7 +37,7 @@ public class BombBehavior : MonoBehaviour
                 } else if (damagedObject.transform.Find("HealthBar") != null && damagedObject.transform.Find("HealthBar").GetComponent<CharacterHealthBar>() != null)
                 {
                     damagedObject.transform.Find("HealthBar").GetComponent<CharacterHealthBar>().reduceHealth();
-                }
+                } 
             }
             
         }

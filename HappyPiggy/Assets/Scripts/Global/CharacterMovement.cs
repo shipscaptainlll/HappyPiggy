@@ -39,10 +39,10 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         RaycastHit2D[] Hit = Physics2D.RaycastAll(transform.position, raycastDirection, 10f);
         if (Hit != null)
         {
-            Debug.Log(raycastDirection);
             bool foundPlayer = false;
             foreach (RaycastHit2D Object in Hit)
             {
@@ -59,7 +59,7 @@ public class CharacterMovement : MonoBehaviour
                 becomeNormal();
             }
             
-        }
+        }*/
 
     }
 

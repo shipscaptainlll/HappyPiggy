@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BarrelWithApples : MonoBehaviour
 {
+    [SerializeField] GameObject congratsText;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,6 @@ public class BarrelWithApples : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Win");
+        congratsText.SetActive(true);
     }
 }
